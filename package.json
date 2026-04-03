@@ -24,5 +24,8 @@
     "saves",
     "framework"
   ],
-  "documentationUrl": "https://github.com/RolandKaechele/TitleScreenManager#readme"
+  "documentationUrl": "https://github.com/RolandKaechele/TitleScreenManager#readme",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  }
 }

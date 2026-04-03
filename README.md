@@ -40,9 +40,14 @@ Optionally integrates with SaveManager, GalleryManager, MapLoaderFramework, Even
 git clone https://github.com/RolandKaechele/TitleScreenManager.git Assets/TitleScreenManager
 ```
 
-### Option C — Manual copy
+### Option C — npm / postinstall
 
-Copy the `TitleScreenManager/` folder into your project's `Assets/` directory.
+```bash
+cd Assets/TitleScreenManager
+npm install
+```
+
+`postinstall.js` confirms installation. No additional data folders are required.
 
 
 ## Scene Setup
