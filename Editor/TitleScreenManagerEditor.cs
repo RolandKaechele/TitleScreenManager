@@ -79,7 +79,7 @@ namespace TitleScreenManager.Editor
             EditorGUILayout.Space(4);
             EditorGUILayout.LabelField("Gallery (via GalleryManager)", EditorStyles.miniBoldLabel);
 
-            var gm = FindObjectOfType<GalleryManager.Runtime.GalleryManager>();
+            var gm = FindFirstObjectByType<GalleryManager.Runtime.GalleryManager>();
             if (gm == null)
             {
                 EditorGUILayout.HelpBox(

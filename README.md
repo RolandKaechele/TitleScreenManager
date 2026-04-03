@@ -88,7 +88,7 @@ Copy the `TitleScreenManager/` folder into your project's `Assets/` directory.
 ### 3. Respond to events
 
 ```csharp
-var tsm = FindObjectOfType<TitleScreenManager.Runtime.TitleScreenManager>();
+var tsm = FindFirstObjectByType<TitleScreenManager.Runtime.TitleScreenManager>();
 
 tsm.OnNewGame        += () => Debug.Log("Starting new game!");
 tsm.OnContinue       += slot => Debug.Log($"Continuing from slot {slot}");
@@ -186,7 +186,7 @@ Requires `TITLESCREEN_GM` define and [GalleryManager](https://github.com/RolandK
 
 ### MapLoaderFramework (`TITLESCREEN_MLF`)
 
-Requires `TITLESCREEN_MLF` define. Scene transitions use `MapLoader.Runtime.MapLoader.LoadScene(scene)`.
+Requires `TITLESCREEN_MLF` define. Scene transitions use `FindFirstObjectByType<MapLoaderFramework.Runtime.MapLoaderManager>()?.LoadMap(scene)`, with a `SceneManager.LoadScene` fallback.
 
 ### EventManager (`TITLESCREEN_EM`)
 

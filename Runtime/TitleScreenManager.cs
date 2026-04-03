@@ -214,7 +214,7 @@ namespace TitleScreenManager.Runtime
             SetPanelVisible(panelExtras,   panel == TitlePanel.Extras);
 
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitlePanelChanged", panel.ToString());
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitlePanelChanged", panel.ToString());
 #endif
         }
 
@@ -233,7 +233,7 @@ namespace TitleScreenManager.Runtime
             ShowPanel(TitlePanel.Gallery);
 #if TITLESCREEN_GM
             // GalleryManager can react to panel open (e.g. refresh UI)
-            var gm = FindObjectOfType<GalleryManager.Runtime.GalleryManager>();
+            var gm = FindFirstObjectByType<GalleryManager.Runtime.GalleryManager>();
             gm?.GetUnlockedEntries(); // touch to ensure cache is warm
 #endif
         }
@@ -258,7 +258,7 @@ namespace TitleScreenManager.Runtime
         {
             OnNewGame?.Invoke();
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitleNewGame");
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitleNewGame");
 #endif
             LoadGameplayScene();
         }
@@ -272,7 +272,7 @@ namespace TitleScreenManager.Runtime
             int slot = GetLastActiveSlot();
             OnContinue?.Invoke(slot);
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitleContinue", slot.ToString());
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitleContinue", slot.ToString());
 #endif
             LoadGameplayScene();
         }
@@ -285,7 +285,7 @@ namespace TitleScreenManager.Runtime
         {
             OnLoadSlot?.Invoke(slot);
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitleLoadSlot", slot.ToString());
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitleLoadSlot", slot.ToString());
 #endif
             LoadGameplayScene();
         }
@@ -294,7 +294,7 @@ namespace TitleScreenManager.Runtime
         public void QuitGame()
         {
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitleQuit");
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitleQuit");
 #endif
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -323,7 +323,7 @@ namespace TitleScreenManager.Runtime
 
             OnOptionsSaved?.Invoke();
 #if TITLESCREEN_EM
-            EventManager.Runtime.EventManager.Raise("TitleOptionsSaved");
+            FindFirstObjectByType<EventManager.Runtime.EventManager>()?.Fire("TitleOptionsSaved");
 #endif
         }
 
@@ -396,7 +396,7 @@ namespace TitleScreenManager.Runtime
             if (continueButtonObject == null) return;
 
 #if TITLESCREEN_SM
-            var sm = FindObjectOfType<SaveManager.Runtime.SaveManager>();
+            var sm = FindFirstObjectByType<SaveManager.Runtime.SaveManager>();
             bool hasSave = false;
             if (sm != null)
             {
@@ -414,7 +414,7 @@ namespace TitleScreenManager.Runtime
         private int GetLastActiveSlot()
         {
 #if TITLESCREEN_SM
-            var sm = FindObjectOfType<SaveManager.Runtime.SaveManager>();
+            var sm = FindFirstObjectByType<SaveManager.Runtime.SaveManager>();
             return sm != null ? sm.ActiveSlot : 0;
 #else
             return 0;
@@ -430,7 +430,9 @@ namespace TitleScreenManager.Runtime
             }
 
 #if TITLESCREEN_MLF
-            MapLoader.Runtime.MapLoader.LoadScene(gameplayScene);
+            var mlm = FindFirstObjectByType<MapLoaderFramework.Runtime.MapLoaderManager>();
+            if (mlm != null) mlm.LoadMap(gameplayScene);
+            else SceneManager.LoadScene(gameplayScene);
 #else
             SceneManager.LoadScene(gameplayScene);
 #endif
