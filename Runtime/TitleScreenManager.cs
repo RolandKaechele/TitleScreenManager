@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 
 namespace TitleScreenManager.Runtime
 {
@@ -47,7 +50,11 @@ namespace TitleScreenManager.Runtime
     /// </summary>
     [AddComponentMenu("TitleScreenManager/Title Screen Manager")]
     [DisallowMultipleComponent]
+#if ODIN_INSPECTOR
+    public class TitleScreenManager : SerializedMonoBehaviour
+#else
     public class TitleScreenManager : MonoBehaviour
+#endif
     {
         // -------------------------------------------------------------------------
         // Inspector

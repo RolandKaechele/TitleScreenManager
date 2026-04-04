@@ -20,6 +20,7 @@ Optionally integrates with SaveManager, GalleryManager, MapLoaderFramework, Even
 - **MapLoaderFramework integration** — scene loading delegated to MapLoader (activated via `TITLESCREEN_MLF`)
 - **EventManager integration** — menu transitions broadcast as named `GameEvent`s (activated via `TITLESCREEN_EM`)
 - **Custom Inspector** — validation warnings, live panel switcher, live options display, gallery overview (via GalleryManager)
+- **Odin Inspector integration** — `SerializedMonoBehaviour` base for full Inspector serialization of complex types; runtime-display fields marked `[ReadOnly]` in Play Mode (activated via `ODIN_INSPECTOR`)
 
 
 ## Installation
@@ -212,6 +213,11 @@ Requires `TITLESCREEN_LOC` define and `com.unity.localization`.
 `LanguageIndex` maps directly to `LocalizationSettings.AvailableLocales.Locales[index]`.
 
 
+### Odin Inspector (`ODIN_INSPECTOR`)
+
+Requires `ODIN_INSPECTOR` define (standard Odin Inspector scripting define). Inherits from `SerializedMonoBehaviour` for full Inspector serialization; runtime-display fields are marked `[ReadOnly]`.
+
+
 ## Options — PlayerPrefs Keys
 
 | Key | Default | Description |
@@ -234,6 +240,7 @@ Requires `TITLESCREEN_LOC` define and `com.unity.localization`.
 | MapLoaderFramework | optional | Required when `TITLESCREEN_MLF` is defined |
 | EventManager | optional | Required when `TITLESCREEN_EM` is defined |
 | com.unity.localization | optional | Required when `TITLESCREEN_LOC` is defined |
+| Odin Inspector | optional | Required when `ODIN_INSPECTOR` is defined |
 
 
 ## Repository
