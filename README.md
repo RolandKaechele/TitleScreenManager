@@ -20,6 +20,7 @@ Optionally integrates with SaveManager, GalleryManager, MapLoaderFramework, Even
 - **MapLoaderFramework integration** — scene loading delegated to MapLoader (activated via `TITLESCREEN_MLF`)
 - **EventManager integration** — menu transitions broadcast as named `GameEvent`s (activated via `TITLESCREEN_EM`)
 - **Custom Inspector** — validation warnings, live panel switcher, live options display, gallery overview (via GalleryManager)
+- **DOTween Pro integration** — `CanvasGroup.DOFade` and `RectTransform.DOAnchorPos` drive menu panel slide-in and fade transitions (activated via `TITLESCREEN_DOTWEEN`)
 - **Odin Inspector integration** — `SerializedMonoBehaviour` base for full Inspector serialization of complex types; runtime-display fields marked `[ReadOnly]` in Play Mode (activated via `ODIN_INSPECTOR`)
 
 
