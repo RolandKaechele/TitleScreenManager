@@ -1,31 +1,31 @@
 {
-  "name": "com.rolandkaechele.titlescreenmanager",
-  "displayName": "Title Screen Manager",
-  "version": "1.0.0",
-  "unity": "2022.3",
-  "description": "Orchestrates the title screen: main menu panel navigation, new/continue/load game flow, unlockable gallery (artworks, cutscenes, music, collectibles), options (audio, language, graphics, fullscreen) persisted via PlayerPrefs, credits, and extras. Optional SaveManager, MapLoaderFramework, EventManager, and Unity Localization bridges.",
-  "author": {
-    "name": "Roland Kaechele",
-    "url": "https://github.com/RolandKaechele/TitleScreenManager"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RolandKaechele/TitleScreenManager.git"
-  },
-  "license": "MIT",
-  "keywords": [
-    "unity",
-    "title",
-    "menu",
-    "ui",
-    "gallery",
-    "options",
-    "credits",
-    "saves",
-    "framework"
-  ],
-  "documentationUrl": "https://github.com/RolandKaechele/TitleScreenManager#readme",
-  "scripts": {
-    "postinstall": "node postinstall.js"
-  }
+    "name":  "com.rolandkaechele.titlescreenmanager",
+    "displayName":  "Title Screen Manager",
+    "version":  "1.0.0",
+    "unity":  "2022.3",
+    "description":  "Orchestrates the title screen: main menu panel navigation, new/continue/load game flow, unlockable gallery (artworks, cutscenes, music, collectibles), options (audio, language, graphics, fullscreen) persisted via PlayerPrefs, credits, and extras. Optional SaveManager, MapLoaderFramework, EventManager, and Unity Localization bridges.",
+    "author":  {
+                   "name":  "Roland Kaechele",
+                   "url":  "https://github.com/RolandKaechele/TitleScreenManager"
+               },
+    "repository":  {
+                       "type":  "git",
+                       "url":  "https://github.com/RolandKaechele/TitleScreenManager.git"
+                   },
+    "license":  "MIT",
+    "keywords":  [
+                     "unity",
+                     "title",
+                     "menu",
+                     "ui",
+                     "gallery",
+                     "options",
+                     "credits",
+                     "saves",
+                     "framework"
+                 ],
+    "documentationUrl":  "https://github.com/RolandKaechele/TitleScreenManager#readme",
+    "scripts":  {
+                    "postinstall":  "node postinstall.js"
+                }
 }
