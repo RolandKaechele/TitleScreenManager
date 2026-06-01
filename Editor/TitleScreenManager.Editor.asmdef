@@ -1,8 +1,9 @@
-﻿{
+{
     "name": "TitleScreenManager.Editor",
     "rootNamespace": "TitleScreenManager.Editor",
     "references": [
-        "TitleScreenManager.Runtime"
+        "TitleScreenManager.Runtime",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
